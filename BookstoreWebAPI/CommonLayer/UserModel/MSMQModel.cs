@@ -26,7 +26,7 @@ namespace CommonLayer.Model
         private void MessageQ_ReceiveCompleted(object sender, ReceiveCompletedEventArgs e)
         {
             var msg = messageQ.EndReceive(e.AsyncResult);
-            string token = msg.Body.ToString();
+            string token = msg.Body.ToString(); 
             string subject = "JWT Token Link";
             string body = token;
 

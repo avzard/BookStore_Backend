@@ -1,5 +1,7 @@
 using BusinessLayer.Interface;
+using BusinessLayer.Interfaces;
 using BusinessLayer.Service;
+using BusinessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,7 +14,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RepositoryLayer.Interface;
+using RepositoryLayer.Interfaces;
 using RepositoryLayer.Service;
+using RepositoryLayer.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +67,18 @@ namespace BookstoreWebAPI
 
             services.AddTransient<IBookRL, BookRL>();
             services.AddTransient<IBookBL, BookBL>();
+
+            services.AddTransient<IWishListBL, WishListBL>();
+            services.AddTransient<IWishListRL, WishListRL>();
+
+            services.AddTransient<ICartBL, CartBL>();
+            services.AddTransient<ICartRL, CartRL>();
+
+            services.AddTransient<IAddressBL, AddressBL>();
+            services.AddTransient<IAddressRL, AddressRL>();
+
+            services.AddTransient<IOrderBL, OrderBL>();
+            services.AddTransient<IOrderRL, OrderRL>();
 
             services.AddSwaggerGen();
             services.AddSwaggerGen(opt =>
